@@ -53,14 +53,23 @@ def apply_operator(operand_1, operand_2, operator):
 
     return printable_equation, result
 
-def math_quiz():
+def math_quiz(question_times = 3, op_1_min = 1, op_1_max = 10, op_2_min = 1, op_2_max = 5):
     """
     It is a math game and ask the user a random math question for 
     3-times and prints the calculated final score.
+    
+    :param question_time: The times of the game
+    :type question_time: int
+    :param op_1_min: Minimun range of the first number
+    :type op_1_min: int
+    :param op_1_max: Maximum range of the first number
+    :type op_1_max: int
+    :param op_2_min: Minimun range of the second number
+    :type op_2_min: int
+    :param op_2_max: Maximum range of the second number
+    :type op_2_max: int
     """
-
     score = 0
-    question_times = 3    # TODO: make this as a function argument
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
@@ -68,8 +77,8 @@ def math_quiz():
     # Repeat the game for 'question_times' times
     for _ in range(question_times):
 
-        operand_1 = get_random_integer(1, 10)
-        operand_2 = get_random_integer(1, 5)
+        operand_1 = get_random_integer(op_1_min, op_1_max)
+        operand_2 = get_random_integer(op_2_min, op_2_max)
         operator = get_random_operator()
 
         (problem, answer) = apply_operator(operand_1, operand_2, operator)
