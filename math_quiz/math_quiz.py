@@ -48,7 +48,7 @@ def apply_operator(operand_1, operand_2, operator):
         result = operand_1 - operand_2
     elif operator == '+': 
         result = operand_1 + operand_2
-    else: 
+    else:
         result = operand_1 * operand_2
 
     return printable_equation, result
@@ -77,7 +77,12 @@ def math_quiz():
         # Print the question and wait to receive response from the user
         print(f"\nQuestion: {problem}")
         user_answer = input("Your answer: ")
-        user_answer = int(user_answer)
+
+        try:
+            user_answer = int(user_answer)
+        except:
+            print("Invalid answer!! You lost the point. Valid answers are integer.")
+            continue
 
         # Validate the answer and update the score
         if user_answer == answer:
